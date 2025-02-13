@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index - Store</title>
+</head>
+<body>
+
+<h1>
+    <p th:if="${client}" th:text="'Bonjour ' + ${client.nom} + ' ' + ${client.prenom}"></p>
+</h1>
+
+<a th:href="@{/store/logout}">Se déconnecter</a>
+
+<h2>Ajouter une commande</h2>
+<form th:action="@{/store/create}" method="post">
+    <label for="nom_comm">Nom de la commande:</label>
+    <input type="text" id="nom_comm" name="nom_comm" required />
+    <button type="submit">Créer la commande</button>
+</form>
+
+<h2>Mes commandes</h2>
+<div th:if="${commandes != null}">
+    <ul>
+        <li th:each="commande : ${commandes}">
+            <p th:text="'Commande: ' + ${commande.nom_comm}"></p>
+        </li>
+    </ul>
+</div>
+<div th:if="${commandes == null}">
+    <p>Aucune commande trouvée.</p>
+</div>
+
+</body>
+</html>

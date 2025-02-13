@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.Optional;
@@ -15,10 +16,10 @@ public class ClientController {
     @Autowired
     private ClientService clientService;
 
-    // Page d'accueil
+    // Page d'accueil (connexion et inscription)
     @GetMapping("/home")
     public ModelAndView home() {
-        return new ModelAndView("/home");
+        return new ModelAndView("home"); // Affiche home.html
     }
 
     // Création de compte
@@ -26,39 +27,48 @@ public class ClientController {
     public RedirectView register(@RequestParam String email, 
                                  @RequestParam String mdp, 
                                  @RequestParam String nom, 
-                                 @RequestParam String prenom) {
+                                 @RequestParam String prenom,
+                                 RedirectAttributes redirectAttributes) {
         try {
             clientService.register(email, mdp, nom, prenom);
-            return new RedirectView("/home"); // Redirection vers la page d'accueil après inscription
+            redirectAttributes.addFlashAttribute("success", "Compte créé avec succès !");
+            return new RedirectView("/home");
         } catch (RuntimeException e) {
-            return new RedirectView("/home?error=" + e.getMessage()); // Message d'erreur si l'email est déjà utilisé
+            redirectAttributes.addFlashAttribute("error", e.getMessage());
+            return new RedirectView("/home");
         }
     }
 
-    // Page d'utilisateur
+    // Page utilisateur
     @GetMapping("/client")
-    public ModelAndView client() {
-        return new ModelAndView("/client");
+    public ModelAndView client(HttpSession session) {
+        Long clientId = (Long) session.getAttribute("clientId");
+        if (clientId == null) {
+            return new ModelAndView("redirect:/home");
+        }
+        return new ModelAndView("client");
     }
 
     // Authentification
     @PostMapping("/authenticate")
     public RedirectView authenticate(@RequestParam String email, 
                                      @RequestParam String mdp, 
-                                     HttpSession session) {
-        try {
-            Optional<Client> client = clientService.authenticate(email, mdp);
-            session.setAttribute("client", client.get());  // Enregistrer le client dans la session
-            return new RedirectView("/client"); // Redirection vers la page client après authentification réussie
-        } catch (RuntimeException e) {
-            return new RedirectView("/home?error=" + e.getMessage()); // Message d'erreur si l'authentification échoue
+                                     HttpSession session,
+                                     RedirectAttributes redirectAttributes) {
+        Optional<Client> client = clientService.authenticate(email, mdp);
+        if (client.isPresent()) {
+            session.setAttribute("clientId", client.get().getId());
+            return new RedirectView("/client");
+        } else {
+            redirectAttributes.addFlashAttribute("error", "Identifiants incorrects");
+            return new RedirectView("/home");
         }
     }
 
     // Déconnexion
     @PostMapping("/logout")
     public RedirectView logout(HttpSession session) {
-        session.invalidate();  // Invalidée la session pour déconnecter le client
-        return new RedirectView("/home"); // Rediriger vers la page d'accueil après déconnexion
+        session.invalidate();
+        return new RedirectView("/home");
     }
 }
