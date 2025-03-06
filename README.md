@@ -48,7 +48,7 @@ L'utilisateur peut ajouter un article avec :
 ### Suppression d'un article
 Un article peut être supprimé d'une commande.
 
-**Capture d'écran :** ![ Ajout et Suppression d'article](images/suppression_article.png)
+**Capture d'écran :** ![ Ajout et Suppression d'article](Capture d’écran 2025-03-06 à 09.07.08.png)
 
 ## 5. Impression des commandes
 Une page permet d'afficher les articles d'une commande avec une option d'impression.
