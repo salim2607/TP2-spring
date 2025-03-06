@@ -95,33 +95,3 @@ Seul un client connecté peut gérer ses commandes. Les accès non autorisés so
 
 
 
----
-
-**Fin de la démonstration**)
-
-## 4. Gestion des articles
-### Ajout d'un article dans une commande
-L'utilisateur peut ajouter un article avec :
-- Libellé
-- Quantité
-- Prix unitaire
-
-
-### Suppression d'un article
-Un article peut être supprimé d'une commande.
-
-**Capture d'écran :** ![ Ajout et Suppression d'article](Capture d’écran 2025-03-06 à 09.07.08.png)
-
-## 5. Impression des commandes
-Une page permet d'afficher les articles d'une commande avec une option d'impression.
-
-**Capture d'écran :** ![Impression commande](https://github.com/salim2607/TP2-spring/blob/93958a203b4139d35ef329401ff79cfb26190fc6/photos/Capture%20d%E2%80%99%C3%A9cran%202025-03-06%20%C3%A0%2009.07.08.png)
-
-## 6. Sécurité et protection des routes
-Seul un client connecté peut gérer ses commandes. Les accès non autorisés sont redirigés vers la page de connexion.
-
-
-
----
-
-**Fin de la démonstration**
