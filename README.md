@@ -53,7 +53,7 @@ Un article peut être supprimé d'une commande.
 ## 5. Impression des commandes
 Une page permet d'afficher les articles d'une commande avec une option d'impression.
 
-**Capture d'écran :** ![Impression commande](images/impression_commande.png)
+**Capture d'écran :** ![Impression commande](https://github.com/salim2607/TP2-spring/blob/baa9bf607183a88b03b81594f6a5f43a73c83d43/photos/Capture%20d%E2%80%99%C3%A9cran%202025-03-06%20%C3%A0%2009.07.52.png)
 
 ## 6. Sécurité et protection des routes
 Seul un client connecté peut gérer ses commandes. Les accès non autorisés sont redirigés vers la page de connexion.
