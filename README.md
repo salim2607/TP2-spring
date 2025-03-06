@@ -57,7 +57,7 @@ Un utilisateur peut créer un compte en fournissant :
 ### Connexion
 L'utilisateur peut se connecter en saisissant son email et son mot de passe.
 
-**Capture d'écran :** ![Connexion](images/connexion.png)
+
 
 ### Déconnexion
 Un bouton "Déconnexion" permet de quitter la session.
@@ -70,7 +70,6 @@ Une commande peut être créée et associée à un client connecté.
 ### Affichage des commandes
 L'utilisateur peut consulter la liste de ses commandes.
 
-**Capture d'écran :** ![Liste des commandes](images/liste_commandes.png)
 
 ## 4. Gestion des articles
 ### Ajout d'un article dans une commande
