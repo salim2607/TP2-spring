@@ -6,7 +6,7 @@ Cette application est développée avec Spring et permet de gérer les commandes
 ## 1. Accès à l'application
 L'application est accessible à l'adresse suivante :
 ```
-http://localhost:8080/store/index
+http://localhost:8080/store/home
 ```
 
 ## 2. Gestion des clients
@@ -42,7 +42,7 @@ Cette application est développée avec Spring et permet de gérer les commandes
 ## 1. Accès à l'application
 L'application est accessible à l'adresse suivante :
 ```
-http://localhost:8080/store/index
+http://localhost:8080/store/home
 ```
 
 ## 2. Gestion des clients
