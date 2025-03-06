@@ -71,6 +71,9 @@ Une commande peut être créée et associée à un client connecté.
 L'utilisateur peut consulter la liste de ses commandes.
 
 
+**Capture d'écran :** ![affichage commande](https://github.com/salim2607/TP2-spring/blob/c35608345fc149681c2a83eed5402b0f183f6909/photos/Capture%20d%E2%80%99%C3%A9cran%202025-03-06%20%C3%A0%2009.07.52.png
+)
+
 ## 4. Gestion des articles
 ### Ajout d'un article dans une commande
 L'utilisateur peut ajouter un article avec :
