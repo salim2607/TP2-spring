@@ -27,15 +27,15 @@ public class ClientController {
     @Autowired
     private CommandeItf commandeService;
 
-    @GetMapping("/index")
-    public String index() {
-        return "/store/index";
+    @GetMapping("/home")
+    public String home() {
+        return "/store/home";
     }
 
     @PostMapping("/create")
     public RedirectView create(@RequestParam String email, @RequestParam String password, @RequestParam String nom, @RequestParam String prenom) {
         service.create(email, password, nom, prenom);
-        return new RedirectView("/store/index");
+        return new RedirectView("/store/home");
     }
     
     @PostMapping("/login")
@@ -45,14 +45,14 @@ public class ClientController {
             session.setAttribute("email", email); 
             return new RedirectView("/store/client");
         }
-        return new RedirectView("/store/index");
+        return new RedirectView("/store/home");
     }
     
     @GetMapping("/client")
     public ModelAndView clientPage(HttpSession session) {
         String email = (String) session.getAttribute("email");
         if (email == null) {
-            return new ModelAndView("/store/index");
+            return new ModelAndView("/store/home");
         }
         
         Client client = service.findByEmail(email);
@@ -70,6 +70,6 @@ public class ClientController {
     public RedirectView logout(HttpSession session) {
     	session.removeAttribute("email");
         session.invalidate(); 
-        return new RedirectView("/store/index");
+        return new RedirectView("/store/home");
     }
 }
