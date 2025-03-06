@@ -22,7 +22,6 @@ Un utilisateur peut créer un compte en fournissant :
 ### Connexion
 L'utilisateur peut se connecter en saisissant son email et son mot de passe.
 
-**Capture d'écran :** ![Connexion](images/connexion.png)
 
 ### Déconnexion
 Un bouton "Déconnexion" permet de quitter la session.
@@ -54,7 +53,6 @@ Un utilisateur peut créer un compte en fournissant :
 - Nom
 - Prénom
 
-**Capture d'écran :** ![Création de compte](images/creation_compte.png)
 
 ### Connexion
 L'utilisateur peut se connecter en saisissant son email et son mot de passe.
