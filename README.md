@@ -17,7 +17,7 @@ Un utilisateur peut créer un compte en fournissant :
 - Nom
 - Prénom
 
-**Capture d'écran :** ![Création de compte](images/creation_compte.png)
+**Capture d'écran :** ![Création de compte](https://github.com/salim2607/TP2-spring/blob/3473e5768a94e9cd3ed156863e601698cceaa0d0/photos/Capture%20d%E2%80%99%C3%A9cran%202025-03-06%20%C3%A0%2008.53.49.png)
 
 ### Connexion
 L'utilisateur peut se connecter en saisissant son email et son mot de passe.
