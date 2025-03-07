@@ -46,6 +46,10 @@ public class CommandeController {
         if (email == null) {
             return new RedirectView("/store/home");
         }
+        Commande commande = service.findById(commandeId).orElseThrow();
+        if (!commande.getClient().getEmail().equals(email)) {
+            return new RedirectView("/store/home"); // Redirection si l'utilisateur n'est pas le propriétaire
+        }
         service.addArticleToCommande(commandeId, articleNom, quantity, price);
         return new RedirectView("/store/client/commande/" + commandeId);
     }
@@ -56,6 +60,10 @@ public class CommandeController {
         if (email == null) {
             return new RedirectView("/store/home");
         }
+        Commande commande = service.findById(commandeId).orElseThrow();
+        if (!commande.getClient().getEmail().equals(email)) {
+            return new RedirectView("/store/home"); // Redirection si l'utilisateur n'est pas le propriétaire
+        }
         service.removeArticleFromCommande(commandeId, articleNom);
         return new RedirectView("/store/client/commande/" + commandeId);
     }
@@ -64,9 +72,12 @@ public class CommandeController {
     public ModelAndView commandePage(@PathVariable Long id, HttpSession session) {
         String email = (String) session.getAttribute("email");
         if (email == null) {
-            return new ModelAndView("/store/home");
+            return new ModelAndView("redirect:/store/home");
         }
         Commande commande = service.findById(id).orElseThrow();
+        if (!commande.getClient().getEmail().equals(email)) {
+            return new ModelAndView("redirect:/store/home"); // Redirection si l'utilisateur n'est pas le propriétaire
+        }
         var model = Map.of(
             "commande", commande,
             "articles", commande.getLigneCommande()
